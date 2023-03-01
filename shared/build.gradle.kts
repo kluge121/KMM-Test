@@ -26,13 +26,13 @@ kotlin {
         }
     }
 
-    val ktorVersion = "2.2.1"
     sourceSets {
 
         // for shared
         val commonMain by getting {
             // common dependencies, 공용으로 사용할 라이브러리 추가.
             dependencies {
+                implementation(Dep.Common.Koin.core)
                 implementation(Dep.Common.Coroutines.coroutine)
                 implementation(Dep.Common.Ktor.core)
                 implementation(Dep.Common.Ktor.negotiation)
@@ -66,7 +66,7 @@ kotlin {
             iosSimulatorArm64Main.dependsOn(this)
 
             dependencies {
-                implementation(Dep.Ios.Ktor.darwin)
+                implementation(Dep.IOS.Ktor.darwin)
             }
         }
 
@@ -92,7 +92,7 @@ kotlin {
             watchosSimulatorArm64Main.dependsOn(this)
 
             dependencies {
-                implementation(Dep.Ios.Ktor.darwin)
+                implementation(Dep.IOS.Ktor.darwin)
             }
         }
     }

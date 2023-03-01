@@ -59,4 +59,8 @@ dependencies {
     implementation("androidx.compose.material:material:1.3.1")
     implementation("androidx.activity:activity-compose:1.6.1")
     implementation("androidx.core:core-ktx:1.9.0")
+
+    implementation(Dep.Common.Koin.core)
+    implementation(Dep.Android.Koin.android)
+
 }

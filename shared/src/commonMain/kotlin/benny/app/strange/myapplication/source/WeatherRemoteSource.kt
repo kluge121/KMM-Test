@@ -17,9 +17,6 @@ class WeatherRemoteSource {
     @Throws(Exception::class)
     suspend fun getTodayWeather(request: TodayWeatherRequest): TodayWeatherResponse {
         return client.get {
-            headers {
-                append("content-type", "application/json")
-            }
             url {
                 url.host = "apis.data.go.kr"
                 url.pathSegments = listOf("1360000", "VilageFcstInfoService_2.0", "getUltraSrtNcst")
