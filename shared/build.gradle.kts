@@ -37,6 +37,7 @@ kotlin {
                 implementation(Dep.Common.Ktor.core)
                 implementation(Dep.Common.Ktor.negotiation)
                 implementation(Dep.Common.Ktor.serialization)
+                implementation(Dep.Common.Ktor.logging)
                 implementation(Dep.Common.DateTime.dateTime)
             }
         }

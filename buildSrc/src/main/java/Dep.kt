@@ -1,6 +1,6 @@
 object Dep {
     private object Version {
-        const val ktor = "2.2.1"
+        const val ktor = "2.2.4"
         const val koin = "3.3.3"
     }
 
@@ -18,6 +18,7 @@ object Dep {
             const val core = "io.ktor:ktor-client-core:${Dep.Version.ktor}"
             const val negotiation = "io.ktor:ktor-client-content-negotiation:${Dep.Version.ktor}"
             const val serialization = "io.ktor:ktor-serialization-kotlinx-json:${Dep.Version.ktor}"
+            const val logging = "io.ktor:ktor-client-logging:${Dep.Version.ktor}"
         }
 
         object Coroutines {
