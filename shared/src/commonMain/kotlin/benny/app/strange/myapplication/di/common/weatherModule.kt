@@ -1,4 +1,4 @@
-package benny.app.strange.myapplication.di
+package benny.app.strange.myapplication.di.common
 
 import benny.app.strange.myapplication.repository.TodayWeatherRepository
 import benny.app.strange.myapplication.source.WeatherRemoteSource

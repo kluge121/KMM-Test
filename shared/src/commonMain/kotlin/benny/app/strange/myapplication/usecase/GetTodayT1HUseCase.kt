@@ -7,6 +7,7 @@ import benny.app.strange.myapplication.repository.TodayWeatherRepository
 class GetTodayT1HUseCase(
     private val repository: TodayWeatherRepository
 ) {
+    @Throws(Exception::class)
     suspend operator fun invoke(request: TodayWeatherRequest): List<TodayWeatherEntity> {
         return repository.getTodayWeatherInfo(request)
             .filter { it.category == "T1H" }

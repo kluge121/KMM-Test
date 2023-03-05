@@ -19,11 +19,15 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.lifecycleScope
 import benny.app.strange.myapplication.android.BuildConfig
 import benny.app.strange.myapplication.android.MyApplicationTheme
 import benny.app.strange.myapplication.android.R
 import benny.app.strange.myapplication.model.entity.TodayWeatherEntity
 import benny.app.strange.myapplication.model.request.TodayWeatherRequest
+import benny.app.strange.myapplication.source.WeatherRemoteSource
+import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 import org.koin.androidx.compose.koinViewModel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter.BASIC_ISO_DATE
@@ -31,9 +35,9 @@ import java.time.format.DateTimeFormatter.ISO_LOCAL_DATE
 
 class TodayWeatherActivity : ComponentActivity() {
 
+    private val test: WeatherRemoteSource by inject()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
         setContent {
             MyApplicationTheme {
@@ -55,7 +59,7 @@ fun WeatherScreen(viewModel: TodayWeatherViewModel = koinViewModel()) {
             serviceKey = BuildConfig.API_KEY,
             pageNo = 1,
             baseDate = LocalDate.now().format(BASIC_ISO_DATE),
-            baseTime = "1200",
+            baseTime = "0600",
             nx = "55",
             ny = "127"
         ).let(viewModel::getTodayTemperature)
