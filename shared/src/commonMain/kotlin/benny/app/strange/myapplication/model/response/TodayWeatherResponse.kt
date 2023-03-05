@@ -1,6 +1,7 @@
 package benny.app.strange.myapplication.model.response
 
 
+import benny.app.strange.myapplication.model.entity.TodayWeatherEntity
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -48,7 +49,17 @@ data class TodayWeatherResponse(
                     val ny: Int,
                     @SerialName("obsrValue")
                     val obsrValue: String
-                )
+                ) {
+                    fun toEntity(): TodayWeatherEntity {
+                        return TodayWeatherEntity(
+                            date = baseDate,
+                            time = baseTime,
+                            location = "$nx $ny",
+                            obsrValue = obsrValue
+                        )
+                    }
+                }
+
             }
         }
 

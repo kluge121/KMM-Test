@@ -1,4 +1,3 @@
-
 object Dep {
     private object Version {
         const val ktor = "2.2.1"
@@ -38,7 +37,9 @@ object Dep {
     object Android {
         object Koin {
             const val android = "io.insert-koin:koin-android:${Dep.Version.koin}"
+            const val compose = "io.insert-koin:koin-androidx-compose:3.4.1"
         }
+
         object Ktor {
             const val android = "io.ktor:ktor-client-android:${Dep.Version.ktor}"
         }

@@ -62,5 +62,6 @@ dependencies {
 
     implementation(Dep.Common.Koin.core)
     implementation(Dep.Android.Koin.android)
+    implementation(Dep.Android.Koin.compose)
 
 }

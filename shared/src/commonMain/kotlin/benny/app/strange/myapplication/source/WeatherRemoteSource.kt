@@ -3,6 +3,7 @@ package benny.app.strange.myapplication.source
 import benny.app.strange.myapplication.model.request.TodayWeatherRequest
 import benny.app.strange.myapplication.model.response.TodayWeatherResponse
 import benny.app.strange.myapplication.network.NetworkClient
+import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
@@ -10,10 +11,9 @@ import io.ktor.http.*
 import io.ktor.util.*
 import io.ktor.utils.io.*
 
-class WeatherRemoteSource {
-
-    private val client = NetworkClient.httpClient
-
+class WeatherRemoteSource(
+    private val client: HttpClient
+) {
     @Throws(Exception::class)
     suspend fun getTodayWeather(request: TodayWeatherRequest): TodayWeatherResponse {
         return client.get {
@@ -31,6 +31,8 @@ class WeatherRemoteSource {
                     append("ny", request.ny)
                 }
             }
-        }.body()
+        }.body<TodayWeatherResponse>().also {
+            println(it)
+        }
     }
 }
