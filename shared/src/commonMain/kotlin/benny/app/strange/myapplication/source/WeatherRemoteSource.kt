@@ -19,6 +19,7 @@ class WeatherRemoteSource(
     suspend fun getTodayWeather(request: TodayWeatherRequest): TodayWeatherResponse {
         return client.get {
             url {
+                url.protocol = URLProtocol.HTTPS
                 url.host = "apis.data.go.kr"
                 url.pathSegments = listOf("1360000", "VilageFcstInfoService_2.0", "getUltraSrtNcst")
                 url.parameters.apply {

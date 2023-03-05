@@ -21,9 +21,6 @@ internal object NetworkClient {
             logger = Logger.DEFAULT
             level = LogLevel.ALL
         }
-        engine {
-            this.
-        }
     }
 }
 
