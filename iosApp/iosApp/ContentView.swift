@@ -2,10 +2,16 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
+    
+    @ObservedObject private var viewModel = ViewModel()
+    
 	let greet = Greeting().greet()
 
 	var body: some View {
-		Text(greet)
+        VStack {
+            Text(viewModel.text).font(.system(size: 10))
+        }
+        .padding()
 	}
 }
 
